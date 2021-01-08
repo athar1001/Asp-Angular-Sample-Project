@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationModule } from '@angular/platform-browser/animations';
+import { ToastrModule} from 'ngx-toastr';
 
 
 import { appRoutes } from './routes';
@@ -41,7 +43,9 @@ import { QuestionService } from './admin/shared/question.service';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserService,AuthGuard,
   ,

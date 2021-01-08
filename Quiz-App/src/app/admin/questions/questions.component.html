@@ -1,10 +1,12 @@
 
 <div class="jumbotron">
     <h1 class="display-4 text-center">Submit Questions</h1>
-    <form #ngForm autocomplete="off">
+    <form #ngForm (submit)="onSubmit(form)" autocomplete="off">
     <div class="form-group">
         <label>Question</label>
         <input name="Question" #Question="ngModel" [(ngModel)]="service.formData.Qn" class="form-control">
+        <div class="validation-error" *ngif="Question.invalid && Question.touched">This field is required.</div>
+
     </div>
     <div class="form-group">
         <label>Option 1</label>
@@ -27,7 +29,7 @@
         <input name="Answer" #Answer="ngModel" [(ngModel)]="service.formData.Answer" class="form-control">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-lg btn-block">Save</button>
+        <button type="submit" [disabled]="Form.invalid" class="btn btn-lg btn-block">Save</button>
     </div>
 </form>
     <div class="row">
